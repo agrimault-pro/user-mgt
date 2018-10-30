@@ -1,5 +1,6 @@
 package com.usermgt.users.web.controller;
 
+import com.usermgt.users.configurations.ApplicationPropertiesConfiguration;
 import com.usermgt.users.dao.UserDao;
 import com.usermgt.users.model.User;
 import com.usermgt.users.web.exceptions.UserNotFoundException;
@@ -14,14 +15,16 @@ import java.util.List;
 @RestController
 public class UserController {
 
+    Logger logger = LoggerFactory.getLogger(this.getClass());
+
     private final UserDao userDao;
+    private final ApplicationPropertiesConfiguration applicationPropertiesConfiguration;
 
     @Autowired
-    public UserController(UserDao userDao) {
+    public UserController(UserDao userDao, ApplicationPropertiesConfiguration applicationPropertiesConfiguration) {
         this.userDao = userDao;
+        this.applicationPropertiesConfiguration = applicationPropertiesConfiguration;
     }
-
-    Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @GetMapping(value="/Users")
     public List<User> getUsers() {
@@ -32,9 +35,14 @@ public class UserController {
             throw new UserNotFoundException("There is no user.");
         }
 
-        //TODO Manage the maximum of users to be displayed
+        //Manage the maximum of users to be displayed
+        List<User> limitedUsers = null;
+        if(users.size()>applicationPropertiesConfiguration.getNbMaxUsers()) {
+            limitedUsers = users.subList(0, applicationPropertiesConfiguration.getNbMaxUsers());
+        }
+        logger.info("getUsers - User list found - size = "+users.size()
+                +" - Max size allowed is = "+applicationPropertiesConfiguration.getNbMaxUsers());
 
-        logger.info("getUsers - User list found - size = "+users.size());
-        return users;
+        return limitedUsers;
     }
 }
