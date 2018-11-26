@@ -7,6 +7,9 @@ import com.usermgt.users.web.exceptions.UserNotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -26,23 +29,20 @@ public class UserController {
         this.applicationPropertiesConfiguration = applicationPropertiesConfiguration;
     }
 
+    //Users
     @GetMapping(value="/Users")
     public List<User> getUsers() {
-        List<User> users = userDao.findAll();
+        logger.info("NbMaxUsers: "+applicationPropertiesConfiguration.getNbMaxUsers());
+        Pageable limit = PageRequest.of(0, applicationPropertiesConfiguration.getNbMaxUsers());
+        Page<User> userListPage = this.userDao.findAll(limit);
 
-        if(users.isEmpty()) {
+        List<User> userListToDisplay = userListPage.getContent();
+
+        if(userListToDisplay.isEmpty()) {
             logger.warn("getUsers - No user found !");
             throw new UserNotFoundException("There is no user.");
         }
-
-        //Manage the maximum of users to be displayed
-        List<User> limitedUsers = null;
-        if(users.size()>applicationPropertiesConfiguration.getNbMaxUsers()) {
-            limitedUsers = users.subList(0, applicationPropertiesConfiguration.getNbMaxUsers());
-        }
-        logger.info("getUsers - User list found - size = "+users.size()
-                +" - Max size allowed is = "+applicationPropertiesConfiguration.getNbMaxUsers());
-
-        return limitedUsers;
+        return userListToDisplay;
     }
+
 }
