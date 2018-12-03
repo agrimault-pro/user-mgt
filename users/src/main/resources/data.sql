@@ -12,7 +12,7 @@ INSERT INTO USERS (ID , ALIAS ,FIRSTNAME ,LASTNAME ,EMAIL, PHONENUMBER, BIRTHDAT
     VALUES (4, 'user_4', 'Tom', 'Hanks', 'tom.hanks@gmail.com',' 07 01 05 05 08',to_date('1969/04/06', 'YYYY/MM/DD'),'M','http://www.avatarsdb.com/avatars/kill_bill12.jpg','pwd_4');
 
 INSERT INTO USERS (ID , ALIAS ,FIRSTNAME ,LASTNAME ,EMAIL, PHONENUMBER, BIRTHDATE, GENDER, AVATAR, PASSWORD )
-    VALUES (5, 'user_5', 'Tom', 'Cruise', 'tom.cruise@gmail.com',' 07 01 55 15 08',to_date('1945/08/06', 'YYYY/MM/DD'),'M','http://www.avatarsdb.com/avatars/kill_bill12.jpg','pwd_5');
+    VALUES (5, 'user_5', 'Tom', 'Cruise', 'tom.cruise@gmail.com',' 07 01 55 15 08',to_date('1965/08/06', 'YYYY/MM/DD'),'M','http://www.avatarsdb.com/avatars/kill_bill12.jpg','pwd_5');
 
 
 INSERT INTO USERS (ID , ALIAS ,FIRSTNAME ,LASTNAME ,EMAIL, PHONENUMBER, BIRTHDATE, GENDER, AVATAR, PASSWORD )
@@ -28,7 +28,7 @@ INSERT INTO USERS (ID , ALIAS ,FIRSTNAME ,LASTNAME ,EMAIL, PHONENUMBER, BIRTHDAT
     VALUES (9, 'user_9', 'Tom', 'Hanks', 'tom.hanks@gmail.com',' 07 01 05 05 08',to_date('1969/04/06', 'YYYY/MM/DD'),'M','http://www.avatarsdb.com/avatars/kill_bill12.jpg','pwd_9');
 
 INSERT INTO USERS (ID , ALIAS ,FIRSTNAME ,LASTNAME ,EMAIL, PHONENUMBER, BIRTHDATE, GENDER, AVATAR, PASSWORD )
-    VALUES (10, 'user_10', 'Tom', 'Cruise', 'tom.cruise@gmail.com',' 07 01 55 15 08',to_date('1945/08/06', 'YYYY/MM/DD'),'M','http://www.avatarsdb.com/avatars/kill_bill12.jpg','pwd_10');
+    VALUES (10, 'user_10', 'Tom', 'Cruise', 'tom.cruise@gmail.com',' 07 01 55 15 08',to_date('1975/08/06', 'YYYY/MM/DD'),'M','http://www.avatarsdb.com/avatars/kill_bill12.jpg','pwd_10');
 
 
 INSERT INTO USERS (ID , ALIAS ,FIRSTNAME ,LASTNAME ,EMAIL, PHONENUMBER, BIRTHDATE, GENDER, AVATAR, PASSWORD )
@@ -44,4 +44,4 @@ INSERT INTO USERS (ID , ALIAS ,FIRSTNAME ,LASTNAME ,EMAIL, PHONENUMBER, BIRTHDAT
     VALUES (14, 'user_14', 'Tom', 'Hanks', 'tom.hanks@gmail.com',' 07 01 05 05 08',to_date('1969/04/06', 'YYYY/MM/DD'),'M','http://www.avatarsdb.com/avatars/kill_bill12.jpg','pwd_14');
 
 INSERT INTO USERS (ID , ALIAS ,FIRSTNAME ,LASTNAME ,EMAIL, PHONENUMBER, BIRTHDATE, GENDER, AVATAR, PASSWORD )
-    VALUES (15, 'user_15', 'Tom', 'Cruise', 'tom.cruise@gmail.com',' 07 01 55 15 08',to_date('1945/08/06', 'YYYY/MM/DD'),'M','http://www.avatarsdb.com/avatars/kill_bill12.jpg','pwd_15');
+    VALUES (15, 'user_15', 'Tom', 'Cruise', 'tom.cruise@gmail.com',' 07 01 55 15 08',to_date('1965/08/06', 'YYYY/MM/DD'),'M','http://www.avatarsdb.com/avatars/kill_bill12.jpg','pwd_15');
