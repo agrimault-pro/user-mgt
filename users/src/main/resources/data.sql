@@ -1,4 +1,16 @@
 
+-- ROLE --
+
+INSERT INTO ROLES (ID , ROLENAME)
+    VALUES (1, 'ADMIN');
+
+INSERT INTO ROLES (ID , ROLENAME)
+    VALUES (2, 'READER');
+
+
+
+-- USERS --
+
 INSERT INTO USERS (ID , ALIAS ,FIRSTNAME ,LASTNAME ,EMAIL, PHONENUMBER, BIRTHDATE, GENDER, AVATAR, PASSWORD )
     VALUES (1, 'user_1', 'Jhon', 'Doe', 'jhon.doe@gmail.com',' 06 06 05 05 04',to_date('1975/03/22', 'YYYY/MM/DD'),'M','http://www.avatarsdb.com/avatars/kill_bill_lucy_liu.jpg','pwd_1');
 
