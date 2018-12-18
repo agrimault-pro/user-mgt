@@ -1,5 +1,7 @@
 package com.usermgt.users.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -8,7 +10,7 @@ import java.util.Date;
 public class User {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(name = "ALIAS")
@@ -28,9 +30,13 @@ public class User {
     @Column(name = "AVATAR")
     private String avatar;
 
-    //TODO Prevent this field to be returned is requested by a REST web service
+    @JsonIgnore
     @Column(name = "PASSWORD")
     private String password;
+
+    @OneToOne
+    @JoinColumn(name = "role_id", nullable = false)
+    private Role role;
 
 
     public User() {
@@ -115,6 +121,10 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public Role getRole() {return role;}
+
+    public void setRole(Role role) {this.role = role;}
 
     @Override
     public String toString() {
