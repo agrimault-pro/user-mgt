@@ -30,7 +30,7 @@ public class User {
     @Column(name = "AVATAR")
     private String avatar;
 
-    @JsonIgnore
+//    @JsonIgnore
     @Column(name = "PASSWORD")
     private String password;
 
